@@ -1,12 +1,19 @@
 import React from "react";
-import dp from "../assets/dp.jpg";
+import { motion } from "framer-motion";
+import dp from "../assets/dp.jpg"; // Replace with your image path
 
 const Hero = () => {
   return (
     <div className="border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
-          <div className="flex flex-col items-center lg:items-start">
+          {/* Hero Text with Framer Motion */}
+          <motion.div
+            className="flex flex-col items-center lg:items-start"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             <h1 className="pb-8 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl">
               Raihan Rimon
             </h1>
@@ -25,13 +32,17 @@ const Hero = () => {
               architecture, I strive to provide seamless user experiences and
               high-quality solutions.
             </p>
-          </div>
+          </motion.div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8 flex justify-center">
-          <img
+          {/* Hero Image with Framer Motion */}
+          <motion.img
             src={dp}
             alt="Raihan Rimon"
             className="w-64 h-64 object-cover shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           />
         </div>
       </div>
